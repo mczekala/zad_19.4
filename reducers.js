@@ -1,0 +1,3 @@
+import {
+    commentReducer
+} from './comments';
