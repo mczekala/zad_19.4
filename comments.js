@@ -29,7 +29,9 @@ function commentReducer(state = initialState, action) {
       return Object.assign({}, state, {
         comments: state.comments.map(comment => {
           if (comment.id === action.id) {
-            comment.text = action.text;
+            return { ...comment,
+              text: action.text
+            };
           }
         })
       });
@@ -37,7 +39,9 @@ function commentReducer(state = initialState, action) {
       return Object.assign({}, state, {
         comments: state.comments.map(comment => {
           if (comment.id === action.id) {
-            comment.votes++;
+            return { ...comment,
+              votes: comment.votes + 1
+            };
           }
         })
       });
@@ -45,7 +49,9 @@ function commentReducer(state = initialState, action) {
       return Object.assign({}, state, {
         comments: state.comments.map(comment => {
           if (comment.id === action.id) {
-            comment.votes--;
+            return { ...comment,
+              votes: comment.votes - 1
+            };
           }
         })
       });
